@@ -1,0 +1,26 @@
+startup_message off   # default: on
+vbell on              # no audible bell  
+defscrollback 10000
+caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} $USER@%H %d.%m.%y %{= rW} %c %{-}"
+bindkey ^[[1;5D prev  # Ctrl-left arrow previous window
+bindkey ^[[1;5C next  # Ctrl-right arrow next window
+
+# next 4 lines are to start with window 1 
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10                                                            
+screen 1
+
+# F11 und F12 fuer vorheriges und naechstes Fenster belegen
+bindkey -k F1 prev
+bindkey -k F2 next
+
+#Screens laden
+screen -t uberhost bash 1
+
+# use the scroll bar of xterm or konsole instead of scroll buffers
+termcapinfo xterm* ti@:te@  # use the scroll bar of e.g. xterm or konsole
+
+# SHOW 256 COLORS
+# also add this to bashrc: export TERM=xterm-256color
+term screen-256color
